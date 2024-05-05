@@ -51,8 +51,8 @@ function Instance() {
     (e) => e.type === "WorkflowExecutionStarted"
   ) as HistoryEvent<ExecutionStartedAttributes>;
 
-  const workflowName = startedEvent.attributes.name;
-  const inputs = startedEvent.attributes.inputs;
+  const workflowName = startedEvent?.attributes.name ?? "<unknown>";
+  const inputs = startedEvent?.attributes.inputs ?? [];
 
   let wfResult: string | undefined;
   let wfError: {} | undefined;
